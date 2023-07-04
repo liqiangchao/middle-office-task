@@ -1,0 +1,24 @@
+{
+    "name": "gupo/middle-office-task",
+    "description": "对外服务-任务中心",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Gupo\\MiddleOfficeTask\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "liqiangchao",
+            "email": "liqiangchao@gupo.onaliyun.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "laravel/pint": "^1.10"
+    },
+    "require": {
+        "gupo/middle-office": "1.3.0"
+    }
+}
