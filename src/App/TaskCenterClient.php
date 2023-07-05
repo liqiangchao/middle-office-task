@@ -9,10 +9,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Gupo\MiddleOffice\Exception\ClientException;
 
 /**
- * Class MessageCenter
- *
- * @author: Wumeng - wumeng@gupo.onaliyun.com
- * @since: 2023-06-15 16:42
+ * 任务中心
  */
 class TaskCenterClient extends Client
 {
@@ -29,15 +26,79 @@ class TaskCenterClient extends Client
      * 创建任务
      * @param $body
      * @param $endpoint
+     * @param $headerEx
      * @return mixed
      * @throws ClientException
      * @throws GuzzleException
      */
-
-    public function create($body, $endpoint)
+    public function create($body, $endpoint ,$headerEx = [])
     {
         $header = new RequestHeader($this->config, $body, $this->config->appId);
 
-        return $this->callApiPost($header->getHeader(), $body, $endpoint . 'openapi/task/create');
+        return $this->callApiPost($header->getHeader($headerEx), $body, $endpoint . 'openapi/task/create');
+    }
+
+    /**
+     * 获得任务列表
+     * @param $body
+     * @param $endpoint
+     * @param $headerEx
+     * @return mixed
+     * @throws ClientException
+     * @throws GuzzleException
+     */
+    public function getTaskList($body, $endpoint,$headerEx = [])
+    {
+        $header = new RequestHeader($this->config, $body, $this->config->appId);
+
+        return $this->callApiPost($header->getHeader($headerEx), $body, $endpoint . 'openapi/task/list');
+    }
+
+    /**
+     * 修改任务状态
+     * @param $body
+     * @param $endpoint
+     * @param $headerEx
+     * @return mixed
+     * @throws ClientException
+     * @throws GuzzleException
+     */
+    public function change($body, $endpoint,$headerEx = [])
+    {
+        $header = new RequestHeader($this->config, $body, $this->config->appId);
+
+        return $this->callApiPost($header->getHeader($headerEx), $body, $endpoint . 'openapi/task/change');
+    }
+
+    /**
+     * 修改任务
+     * @param $body
+     * @param $endpoint
+     * @param $headerEx
+     * @return mixed
+     * @throws ClientException
+     * @throws GuzzleException
+     */
+    public function update($body, $endpoint,$headerEx = [])
+    {
+        $header = new RequestHeader($this->config, $body, $this->config->appId);
+
+        return $this->callApiPost($header->getHeader($headerEx), $body, $endpoint . 'openapi/task/update');
+    }
+
+    /**
+     * 获取任务类型
+     * @param $body
+     * @param $endpoint
+     * @param $headerEx
+     * @return mixed
+     * @throws ClientException
+     * @throws GuzzleException
+     */
+    public function category($body, $endpoint,$headerEx = [])
+    {
+        $header = new RequestHeader($this->config, $body, $this->config->appId);
+
+        return $this->callApiPost($header->getHeader($headerEx), $body, $endpoint . 'openapi/task/category');
     }
 }
