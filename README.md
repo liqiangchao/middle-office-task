@@ -6,7 +6,7 @@
 ```
 	return [
 		'id' => env('AUTH_CENTER_APP_ID'),
-		'app_id' => env('AUTH_CENTER_APP_KEy'),
+		'app_id' => env('AUTH_CENTER_APP_KEY'),
 		'app_secret' => env('AUTH_CENTER_APP_SECRET'),
 	];
 ```
@@ -16,5 +16,5 @@
 		-	AUTH_CENTER_APP_SECRET（用户中心获取到的app secret）
 -	实现MessageCenterClient类，调用方法即可
 ```php
-(new MessageCenterClient())->sendMsg($body, $endpoint, $headerExtra);
+(new TaskCenterClient())->create($body, $endpoint, $headerExtra);
 ```
